@@ -1,0 +1,6 @@
+******** Integrarea numerica prin metoda trapezelor ********
+ Integrala functiei f(x) = log(1+x^2)*Gamma(x), pe [0.10,2.50]: 2.48826233
+
+******** Integrarea numerica prin metoda trapezelor ********
+ Integrala functiei f(x) = log(1+x^2)*Gamma(x), pe [0.10,2.50]: 2.48826233
+
