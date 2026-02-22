@@ -1,0 +1,61 @@
+Tasks for the project:
+
+I.
+1) defining the system
+- create a list of at list 10 actions/queries (that relate to the theme of the project), at least 8 type of objects.
+
+2) implementation
+- a java cli app inspired from the one at 1)
+- the app will contain:
+	- simple classes with private/protected attributes
+	- at least 2 different collections, that are capable of managing the previously defined objects (eg. List, Set, Map etc.) of which at least one should be sorted
+	- utilise inheritence for creating aditional classes and using them with inheritence
+	- at least 1 service class that exposes the operations of the system
+	- a Main class from which calls to services are made
+
+II.
+1) Extend the project from stage I by realizing persistence using a relational database
+and JDBC.
+	- create services that expose CRUD operations for some (not all) of the defined classes. Create generic singleton services for writing and reading from the database.
+2) create an audit service
+Create a service that writes in a CSV file and every time an action described in the first stage is executed.  Structure of the file: action_name, timestamp
+
+Observations:
+- use as many java concepts as possible (record classes, inheritence, upcasting, downcasting -instaceof, interfaces, exception hierarchies, try with resources, enums etc.)
+- abstract the code as much as possible, dont use classes directly (especially derived classes), use interfaces
+- instead of 10 actions, you can have less, 3 or 4 (prefferd) but bigger and more complex that do not reuse too many components / copied portions of code between them
+- there isnt a minimum number of objects/classes, while there is at least 1 base class, with 2 child classes that make sense, but code needs to be structured and as efficient as possible
+- it is enough to do 1 service class for the database only for a class (but have more distinct queries)
+
+My ideas:
+Theme: Lego Store
+
+Classes:
+	- Age(enum), Theme(enum)
+	- Set: Title, Number_of_pieces, code, age, Theme
+	- Client
+	- Wishlist (or maybe a member for client)
+	- Store
+Interfaces:
+	- i dont know - i need ideas here
+
+Actions:
+	- buying
+	- add new sets
+	- return set
+	- apply sales
+	- sort by priority index (chosen by the client) in the wishlist
+	
+My idea for implementation:
+ class Main -> singleton
+ service: factory
+ service: store_statistics
+ 
+ Preferences for the project:
+- functions that interact with many objects
+- observer for clients that notifies them whenever an item on their wishlist goes on sale
+- if there arent enough classes i can have a functionality in which a client can create their own minifigure that is composed of pieces (piece: record class - price, with the type of the piece in an enum: head, body, legs, accesories). They can buy the figure after that.
+- use java streams
+
+You dont have to strictly follow my ideas/preferences.
+
