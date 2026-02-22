@@ -1,0 +1,7 @@
+﻿ORG                30h
+main:        MOV                A, #0
+loop:        DEC                A
+                        MOV                P1, A
+                        MOV                R0, #100
+                        DJNZ                R0, $
+                        JMP                loop

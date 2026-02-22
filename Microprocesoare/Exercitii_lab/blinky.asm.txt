@@ -1,0 +1,6 @@
+﻿ORG                72h
+main:        MOV                P1, #0
+loop:        CPL                P1.2
+                        MOV                R0, #200
+                        DJNZ                R0, $
+                        JMP                loop

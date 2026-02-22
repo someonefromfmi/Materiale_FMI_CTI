@@ -1,0 +1,8 @@
+﻿ORG        30h
+setup:        MOV        A, #0
+                        MOV        R0, #0
+                        ORG        7Ah
+loop:        MOV        A, P2
+                        ANL        A, #0xF3
+                        MOV        P1, A
+                        JMP        loop

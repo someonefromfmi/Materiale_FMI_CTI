@@ -1,0 +1,39 @@
+﻿; Setam portul de comunicatie cu 
+; rata 4800 baud si fara paritate.
+; dupa pornirea programului introduce-ti
+; textul in dreptul butonului 
+; TX Send si apasati butonul pentru
+; a transmite. Urmariti memoria
+; de date, la adresa 30h pentru
+; a vedea datele incarcate.
+
+
+                        org         0h
+                        jmp         main
+                        org         0F5h
+main:        call         setser
+                        MOV        R0, #30h
+loop:        JNB        RI, $
+                        MOV        A, SBUF
+                        CLR        RI
+                        CJNE        A, #0Dh, skip
+                        jmp finish
+skip:        MOV        @R0, A
+                        INC        R0
+                        JMP        loop
+
+
+finish:        JMP        $
+
+
+setser:        CLR        SM0
+                        SETB        SM1
+                        SETB        REN
+                        MOV         A, PCON
+                        SETB        ACC.7
+                        MOV        PCON, A
+                        MOV         TMOD, #20h
+                        MOV         TH1, #243
+                        MOV        TL1, #243
+                        SETB        TR1
+                        RET

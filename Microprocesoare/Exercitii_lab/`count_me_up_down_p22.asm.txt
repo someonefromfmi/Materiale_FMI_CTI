@@ -1,0 +1,13 @@
+﻿org                6Bh
+                        mov                A, #5
+                
+loop:                JB                P2.2, up
+                        DEC                A
+                        JMP                display
+up:                        INC                A
+                        JMP                display
+display:        MOV                P1, A
+                        jmp                loop
+wait:                MOV                R0, #200
+                        DJNZ        R0, $
+                        JMP                loop

@@ -1,0 +1,160 @@
+Subiectul 1:
+Prezentati principalele caracteristici si aplicatii ale MCU 8051.
+
+Caracteristici principale:
+-Arhitectură: 8051 are o arhitectură Harvard, cu memorie de program și date separate.
+-Set de instrucțiuni: Dispune de un set de instrucțiuni de 8 biți.
+-Memorie internă: Are 4 KB de memorie ROM și 128 de octeți de memorie RAM.
+-Pinii de intrare/ieșire (I/O): Are 32 de pini I/O dispuși pe 4 porturi de 8 biți.
+-Timere/Cronometre: Dispune de două timere/crotoare pe 16 biți.
+-Comunicații seriale: Integrează un port serial full-duplex.
+-Interupții: Suportă cinci surse de interupții, două externe și trei interne.
+
+Aplicații:
+-Sisteme embedded: MCU 8051 este folosit în diverse aplicații embedded precum controlul electrocasnicelor, jucăriilor electronice și echipamentelor industriale.
+-Automatizare: Este utilizat în controlul și monitorizarea sistemelor automate.
+-Telecomunicații: Folosit în modulatoarele și demodulatoarele digitale.
+-Instrumentație medicală: Aplicații în dispozitive de monitorizare și control medical.
+-Sisteme de securitate: Utilizat în sisteme de alarmă și control acces.
+
+Subiectul 2:
+Prezentati necesitatea si modalitatile de implementare ale Unitatii de Control.
+
+Necesitatea Unității de Control:
+
+Unitatea de control (CU) este esențială într-un procesor pentru a interpreta instrucțiunile din memoria de program și pentru a coordona operațiile necesare execuției acestora. Aceasta asigură sincronizarea și controlul fluxului de date între unitatea aritmetică și logică (ALU), registre și alte componente ale procesorului.
+
+Modalități de implementare:
+
+Unitate de control cablată (hardwired):
+
+Implementată folosind circuite logice fixe.
+Rapidă și eficientă, dar mai dificil de modificat.
+Potrivită pentru aplicații cu cerințe stricte de performanță.
+ 
+Unitate de control microprogramată:
+
+Utilizează o memorie de control (control store) pentru a stoca secvențele de control.
+Mai flexibilă și ușor de modificat prin schimbarea microprogramelor.
+Utilizată în procesoare complexe unde flexibilitatea și modificabilitatea sunt importante.
+
+Subiectul 3:
+Prezentati modul in care sunt procesate instructiunile in interiorul procesorului. Descrieti terminologia de pipelining.
+
+Procesarea instrucțiunilor:
+Fetch (Aducerea instrucțiunii): Procesorul preia instrucțiunea din memoria de program.
+Decode (Decodificarea instrucțiunii): Instrucțiunea este decodificată pentru a determina operația ce trebuie efectuată și operanzii necesari.
+Execute (Executarea instrucțiunii): ALU efectuează operația specificată de instrucțiune.
+Memory Access (Accesul memoriei): Dacă instrucțiunea necesită acces la memorie (citire/scriere), acest pas este realizat.
+Write Back (Scrierea rezultatului): Rezultatul operației este scris în registrul destinat.
+
+
+Pipelining:
+Definiție: Pipelining-ul este o tehnică utilizată pentru a îmbunătăți performanța procesorului prin suprapunerea execuției mai multor instrucțiuni.
+Etape în pipeline: Etapele sunt decuplate astfel încât fiecare etapă să proceseze simultan o instrucțiune diferită. De exemplu, în timp ce o instrucțiune este în faza de execuție, alta poate fi în faza de decodificare, iar alta în faza de fetch.
+Beneficii: Această tehnică crește rata de execuție a instrucțiunilor (throughput), dar poate introduce complexitate suplimentară prin necesitatea de a gestiona conflictele de date și control.
+
+Subiectul 4:
+Proiectati o unitate aritmetica logica ce sa implementeze urmatorul set de instructiuni: 00-1 Adunare (aritmetica), 00-0 - Scadere (aritmetica), 01-X - XOR, 10-X - AND, 11-X - OR.
+Ordinea bitilor de control este S1, S0, Bneg. De exemplu pentru prima operatie,cea de adunare vom avea S1=0, S0=0, respectiv Bneg=0.
+x
+Specificațiile setului de instrucțiuni:
+00-1: Adunare aritmetică (S1=0, S0=0, Bneg=1)
+00-0: Scădere aritmetică (S1=0, S0=0, Bneg=0)
+01-X: XOR (S1=0, S0=1, Bneg=X)
+10-X: AND (S1=1, S0=0, Bneg=X)
+11-X: OR (S1=1, S0=1, Bneg=X)	
+
+
+Schema logică ALU
+Intrări și ieșiri:
+
+Intrări: A (8 biți), B (8 biți), S1, S0, Bneg
+Ieșire: Rez (8 biți)
+Blocuri funcționale:
+
+Complementare B:
+Un bloc care complementă operandul B dacă Bneg este 1.
+Adunare:
+Un bloc de adunare pentru A și B_mod.
+Scădere:
+Un bloc de scădere pentru A și B_mod.
+XOR:
+Un bloc XOR între A și B.
+AND:
+Un bloc AND între A și B.
+OR:
+Un bloc OR între A și B.
+Multiplexor:
+Selectează rezultatul final pe baza semnalelor de control S1 și S0.
+
+Detalierea blocurilor:
+Complementarea lui B (B_mod):
+
+        +-------+
+ B -----|       |
+        |  NOT  |--- Bneg ---\
+        |       |            |
+        +-------+            |
+                             |
+         \------------------/
+          \
+           \
+            \
+             \-------+-------+
+                     |       |
+                     |   MUX |--- B_mod
+                     |       |
+                     +-------+
+
+2. Blocurile aritmetice și logice:
+
+ A -------+-----------+           +---------+ 
+          |           |           |         | 
+          |           |           |         | 
+          |        +-----+     +-----+    +-----+   
+          |        | ADD |     | SUB |    | XOR | 
+          |        +-----+     +-----+    +-----+ 
+          |           |           |         | 
+          |           |           |         | 
+          |           |           |         | 
+B_mod ----+-----------+-----------+---------+
+          |           |           |         | 
+          |        +-----+     +-----+    +-----+   
+          |        | AND |     | OR  |    |     | 
+          |        +-----+     +-----+    +-----+ 
+          |           |           |         | 
+          |           |           |         | 
+          |           |           |         | 
+          +-----------+-----------+---------+
+
+3. Multiplexor pentru selectarea rezultatelor:
+
+    +------------------------------------------------+
+    |                                                |
+    |            +---------------------+             |
+    |            |                     |             |
+ADD -----------> |                     |             |
+                 |                     |             |
+SUB -----------> |                     |             |
+                 |                     |             |
+XOR -----------> |        MUX          |--- Rez
+                 |                     |             |
+AND -----------> |                     |             |
+                 |                     |             |
+OR ------------> |                     |             |
+                 +---------------------+             |
+    |                                                |
+    +------------------------------------------------+
+
+    S1, S0 -----> Control
+
+
+Explicația schemei:
+Complementare B: Dacă Bneg este 1, B este complementat printr-un bloc NOT. Un multiplexor (MUX) decide dacă B va fi completat sau rămâne nemodificat.
+Blocuri aritmetice și logice: Blocurile pentru adunare, scădere, XOR, AND și OR operează în paralel asupra operanzilor A și B_mod.
+Multiplexor: Selectează ieșirea finală pe baza semnalelor de control S1 și S0.
+Notă:
+Semnalele de control (S1, S0) și bitul Bneg sunt utilizate pentru a selecta operația corectă și pentru a manipula operandul B, după cum este necesar.
+Multiplexorul final combină rezultatele operațiilor logice și aritmetice într-o ieșire unică, în funcție de combinația specificată de S1 și S0.
+Acesta este aspectul general al unei scheme logice pentru ALU conform specificațiilor date. Implementarea ar trebui să urmeze această structură pentru a asigura corectitudinea operațiilor aritmetice și logice.

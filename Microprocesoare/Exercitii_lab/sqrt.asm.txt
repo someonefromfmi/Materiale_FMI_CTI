@@ -1,0 +1,12 @@
+﻿org                30h
+loop:                mov                A,P2
+                        ANL                A, #0x0F
+                        CALL        sqrt
+display:        MOV                P1, A
+                        MOV                R0, #200
+                        DJNZ        R0, $
+                        jmp                loop
+sqrt:                INC                A
+                        MOVC        A, @A+PC
+                        RET
+db 0,1,1,1,2,2,2,2,2,3,3,3,3,3,3,3

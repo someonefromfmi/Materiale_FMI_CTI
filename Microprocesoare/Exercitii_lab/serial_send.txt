@@ -1,0 +1,53 @@
+﻿; Scriem pe portul serial textul
+; Hello World
+; folosind comunicatia seriala cu
+; rata de baud 4800 si paritate 
+; impara (Even Parity).
+; Dupa ce setati portul de comunicatie
+; in modul precizat rulati programul.
+
+
+                        org                0h
+                        jmp                 main
+                        org                 0F5h
+main:        call         setser
+                        call                setmsg
+                        MOV        R0, #30h
+loop:        MOV        A, @R0
+                        JZ                finish
+                        MOV        C,P
+                        MOV        ACC.7,C
+                        MOV        SBUF, A
+                        JNB        TI, $
+                        INC        R0
+                        CLR        TI
+                        JMP        loop
+                        
+finish:        JMP        $
+
+
+setser:        CLR        SM0
+                        SETB        SM1
+                        SETB        REN
+                        MOV         A, PCON
+                        SETB        ACC.7
+                        MOV        PCON, A
+                        MOV         TMOD, #20h
+                        MOV         TH1, #243
+                        MOV        TL1, #243
+                        SETB        TR1
+                        RET        
+setmsg:        MOV        30h, #'H'
+                        MOV        31h, #'e'
+                        MOV        32h, #'l'
+                        MOV        33h, #'l'
+                        MOV        34h, #'o'
+                        MOV        35h, #' '
+                        MOV        36h, #'W'
+                        MOV        37h, #'o'
+                        MOV        38h, #'r'
+                        MOV        39h, #'l'
+                        MOV        3Ah, #'d'
+                        MOV        3Bh, #'!'
+                        MOV        3Ch, #0
+                        RET

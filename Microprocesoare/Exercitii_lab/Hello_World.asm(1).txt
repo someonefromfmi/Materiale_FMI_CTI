@@ -1,0 +1,6 @@
+﻿main:        MOV        A,#0
+loop:        INC        A
+                        MOV         P1,A
+wait:        MOV R0, #200
+                        DJNZ R0, $
+                        JMP        loop
