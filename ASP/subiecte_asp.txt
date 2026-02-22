@@ -1,0 +1,60 @@
+/**
+ * Scrieti un program C MPI care sa functioneze cu exact 4 procese in paralel
+ * si sa asigure urmatoarea functionalitate:
+ * - procesul cu rang 0 citeste datele numerice din fisierul input.dat
+ * intr-un bloc RAM alocat dinamic.
+ * - toate procesele aloca dinamic un bloc RAM suficient de mare pentru a
+ * receptiona o distributie uniforma a datelor de intrare (de exemplu,
+ * float *local_data);
+ * - procesul cu rang 0 distribuie uniform valorile citite;
+ * - fiecare proces determina numarul de valori semipozitive dintre
+ * cele stocate local;
+ * - rezultatul este colectat cu reducere (sumare) de procesul cu rang 0,
+ * care scrie fisierul output.dat cu urmatoarea structura:
+ * Numar valori procesate:[TAB] val[NEWLINE]
+ * Numar valori semipozitive procesate:[TAB] val[NEWLINE]
+ * (numarul total de valori citite din fisierul de intrare pe prima linie,
+ * numarul de valori semipozitive pe a doua).
+ */
+ 
+ 
+ /**
+ * Transformata Fourier (TF) este o tehnica fundamentala in analiza semnalelor.
+ * Programul fft_serial.c utilizeaza transformata Fourier 1D, asa cum
+ * este ea implementata in biblioteca de functii GSL, pentru filtrarea
+ * unui semnal (a doua coloana din fisierul input_data.dat). Definitia
+ * TF discrete directe a sirului (zk) este:
+ * x_j = sum_0^(n-1) (z_k exp(-2*pi*i*j*k/n))
+ * si inverse:
+ * z_j = 1/n * sum_0^(n-1) (x_k exp(2*pi*i*j*k/n))
+ * nproc trebuie sa fe divizor al lui N
+ * Vi se cere sa paralelizati programul secvential fft_serial.c, astfel
+ * incat sa asigure urmatoarea functionalitate:
+ * a) scrieti o functie cu prototipul:
+ * int read_lines_number(char* file_name);
+ * care sa citeasca numarul de linii din input_data.dat, functie 
+ * utilizata de procesul cu rangul 0, responsabil cu operatiile I/O 
+ * pentru a determina (in locul directivei #define N 256) dimensiunea
+ * blocului alocat dinamic pentru stocarea datelor de intrare (a doua
+ * coloana din fisier);
+ * b) numarul de date determinat de procesul cu rang 0 apeland
+ * functia read_lines_number(char* file_name) este distribuit tuturor
+ * proceselor din comunicator, pentru a determina dimensiunea 
+ * blocurilor de date locale (a se vedea mai jos);
+ * c) datele citite de procesul cu rangul 0 sunt distribuite
+ * uniform tuturor proceselor din comunicator, care le stocheaza in
+ * blocuri locale, cu dimensiuni definite corespunzator, alocate dinamic;
+ * d) toate procesele aplica procedura de filtrare, asa cum este ea
+ * definita in programul secvential, pe datele locale, cu parametrul
+ * local_filter = FILTER/nproc;
+ * e) rezultatul este colectat de la toate procesele de procesul cu rangul 0,
+ * care il scrie intr-un fisier text filtered_data.dat, cu formatul:
+ * k [TAB] data[k] [NEWLINE]
+ * pe fiecare linie.
+ * f) functii MPI sugerate: MPI_Init(), MPI_Comm_size(), MPI_Comm_rank(),
+ * MPI_Bcast(), MPI_Scatter(), MPI_Gather(), MPI_Finalize().
+ *
+ * ATENTIE: FFT-ul trebuie facut pe tot vectorul, nu pe bucati locale!
+ * Paralelizarea corecta pentru FFT 1D cu GSL (fara FFT distribuit) inseamna ca
+ * doar procesul 0 face FFT si filtrare, iar celelalte procese doar primesc/returneaza date.
+ */
