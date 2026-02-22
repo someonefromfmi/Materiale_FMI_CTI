@@ -1,0 +1,270 @@
+Basics
+2. Este antetul functiei de intrare in programul nostru, orice clasa cu psvm va deveni runable
+3. Args primeste un vector de string-uri, care reprezinta argumentele date din linia de comanda 
+4. Nu putem modifica variabile nestatice in functii statice
+
+Variabile
+1. Tipurile de date primitive sunt: int, float, char, double, long
+2. Tipurile de date referinta sunt cele initializate cu keyword-ul new
+3. Clasele wrapper ofera o modalitate de a face tipurile de date primitive ca si obiecte
+4. Cele referinta se afla pe o zona de memorie, numita heap si pot fi nullable, iar cele primitive se afla pe stack
+5.  Autoboxing transforma o primitiva intr-o referinta/clasa wrapper cand este nevoie (atunci cand este chemat ca si referinta intr-o functie). Unboxing este atunci cand o referinta este dereferentiata automat. Null se trateaza cu un if, de obicei.
+// Autoboxing
+List<Integer> li = new ArrayList<>();
+for (int i = 1; i < 50; i += 2)
+    li.add(i);
+    
+// Unboxing
+import java.util.ArrayList;
+import java.util.List;
+
+public class Unboxing {
+
+    public static void main(String[] args) {
+        Integer i = new Integer(-8);
+
+        // 1. Unboxing through method invocation
+        int absVal = absoluteValue(i);
+        System.out.println("absolute value of " + i + " = " + absVal);
+
+        List<Double> ld = new ArrayList<>();
+        ld.add(3.1416);    // Π is autoboxed through method invocation.
+
+        // 2. Unboxing through assignment
+        double pi = ld.get(0);
+        System.out.println("pi = " + pi);
+    }
+
+    public static int absoluteValue(int i) {
+        return (i < 0) ? -i : i;
+    }
+}
+
+Clase
+1. Prima este initializata cu null, a doua este initializata cu valorile mentionate
+2. Arata tipul de date al functiei
+3. Asteptare: true, true. Realitate: false, true (== nu compara valori, ci compara referinte)
+4. Toate cele 3 linii afiseaza numele tipului de date pe care il are variabila f
+
+Vizibilitatea variabilelor
+
+class MyClass   // package private
+{
+   int field;    // package private field
+
+   void calc() {  // package private method
+
+   }
+}
+
+Pasare prin valoare
+1. 10
+2. Se va afisa to 10
+3. 11
+4. 10
+
+Derivare
+1. Clasa object este clasa mostenita de catre toate clasele din java
+3. super este un pointer catre clasa de baza si super() este constructorul acesteia. Avem nevoie de el pt a accesa date membru/metode din clasa parinte. Da, trebuie sa fie neaparat pe prima linie, pentru a initializa partea din parinte
+
+@Override este o anotare care specifica ca functia respectiva a fost suprascrisa in clasa copil
+
+4. package org.models;
+
+import java.time.Year;
+import java.util.ArrayList;
+import java.util.List;
+
+abstract class Contract {
+    private static int counter = 0;
+    protected int nrContract;
+    protected int anSemnare;
+
+    public Contract(int anSemnare) {
+        this.nrContract = ++counter;
+        this.anSemnare = anSemnare;
+    }
+
+    public abstract boolean esteValid();
+    
+    @Override
+    public String toString() {
+        return "Contract #" + nrContract + ", An: " + anSemnare;
+    }
+}
+
+class ContractAngajareNedeterminata extends Contract {
+    private String angajat;
+
+    public ContractAngajareNedeterminata(int anSemnare, String angajat) {
+        super(anSemnare);
+        this.angajat = angajat;
+    }
+
+    @Override
+    public boolean esteValid() {
+        return true; // Contractele nedeterminate sunt mereu valide
+    }
+}
+
+class ContractAngajareDeterminata extends Contract {
+    private String angajat;
+    private int luniValabilitate;
+
+    public ContractAngajareDeterminata(int anSemnare, String angajat, int luniValabilitate) {
+        super(anSemnare);
+        this.angajat = angajat;
+        this.luniValabilitate = luniValabilitate;
+    }
+
+    @Override
+    public boolean esteValid() {
+        int anExpirare = anSemnare + (luniValabilitate / 12);
+        return anExpirare >= Year.now().getValue();
+    }
+}
+
+class ContractCumparare extends Contract {
+    private String produs;
+
+    public ContractCumparare(int anSemnare, String produs) {
+        super(anSemnare);
+        this.produs = produs;
+    }
+
+    @Override
+    public boolean esteValid() {
+        return true; // Contractele de cumpărare sunt definitive
+    }
+}
+
+class ContractInchiriere extends Contract {
+    private String locatie;
+    private int luniValabilitate;
+
+    public ContractInchiriere(int anSemnare, String locatie, int luniValabilitate) {
+        super(anSemnare);
+        this.locatie = locatie;
+        this.luniValabilitate = luniValabilitate;
+    }
+
+    @Override
+    public boolean esteValid() {
+        int anExpirare = anSemnare + (luniValabilitate / 12);
+        return anExpirare >= Year.now().getValue();
+    }
+}
+
+class ContractManager {
+    private List<Contract> contracte = new ArrayList<>();
+
+    public void adaugaContract(Contract contract) {
+        contracte.add(contract);
+    }
+
+    public void afiseazaContracte() {
+        for (Contract contract : contracte) {
+            System.out.println(contract);
+        }
+    }
+
+    public int numarContracte() {
+        return contracte.size();
+    }
+
+    public int numarContracteValide() {
+        return (int) contracte.stream().filter(Contract::esteValid).count();
+    }
+
+    public int numarContracteInvalide() {
+        return numarContracte() - numarContracteValide();
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        ContractManager manager = new ContractManager();
+        
+        manager.adaugaContract(new ContractAngajareNedeterminata(2022, "Ion Popescu"));
+        manager.adaugaContract(new ContractAngajareDeterminata(2020, "Maria Ionescu", 24));
+        manager.adaugaContract(new ContractCumparare(2021, "Laptop Dell"));
+        manager.adaugaContract(new ContractInchiriere(2019, "Apartament Bucuresti", 36));
+        
+        System.out.println("Lista contracte:");
+        manager.afiseazaContracte();
+
+        System.out.println("Total contracte: " + manager.numarContracte());
+        System.out.println("Contracte valide: " + manager.numarContracteValide());
+        System.out.println("Contracte invalide: " + manager.numarContracteInvalide());
+    }
+}
+
+package org.example;
+
+class A {
+    int x;
+
+    public A(int x) {
+        this.x = x;
+    }
+};
+
+class B {
+    int x;
+
+    public B(int x) {
+        this.x = x;
+    }
+};
+
+class C implements Cloneable {
+    A a;
+    B b;
+
+    public C(B b, A a) {
+        this.b = b;
+        this.a = a;
+    }
+
+    @Override
+    public String toString() {
+        return "C{" +
+                "a=" + a +
+                ", b=" + b +
+                '}';
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return new  C(new B(this.b.x), new A(this.a.x));
+    }
+};
+
+public class Main {
+
+    public static void main(String[] args) {
+        A a = new A(10);
+        B b = new B(10);
+
+        C c = new C(b, a);
+        System.out.println(c);
+
+        try {
+            System.out.println(c.clone());
+        } catch (CloneNotSupportedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+}
+
+Compunere si agregare
+1. Afiseaza clasa si datele membru 
+
+Abstract
+1. Clasele abstracte contin functii abstracte si nu pot fi instantiate. Acestea sunt folosite pentrua descrie un comportament comun. Metodele abstracte trebuie neaparat suprascrise in clasa copil.
+2. Abstract se pune atunci cand vrem sa avem o clasa abstracta, se pune inaintea numelui clasei si inainte numelui metodelor din aceasta.
+
+Final
+1. - inainte de date membru, acestea nu pot fi modificare ca si const din cpp
+- inainte de numele clasei: clasa nu poate fi mostenita
+- inainte de o metoda: aceasta nu poate sa fie suprascrisa
