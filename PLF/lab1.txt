@@ -1,0 +1,54 @@
+male(sam).
+male(oliver).
+male(ben).
+male(peter).
+male(roger).
+female(elizabeth).
+female(sandra).
+female(mary).
+female(lisa).
+female(olivia).
+parent_of(sandra, sam).
+parent_of(sandra, elizabeth).
+parent_of(ben, sam).
+parent_of(ben, elizabeth).
+parent_of(peter, oliver).
+parent_of(peter, sandra).
+parent_of(roger, ben).
+parent_of(roger, lisa).
+parent_of(olivia, roger).
+parent_of(olivia, mary).
+
+father_of(X,Y) :-
+    parent_of(X,Y),
+    male(Y).
+
+father_of(X,Y) :-
+    parent_of(X,Y),
+    female(Y).
+
+ancestor_of(X,Y) :- parent_of(X,Y).
+ancestor_of(X,Y) :- parent_of(X, Z),
+    				ancestor_of(Z,Y).
+%% distance/3 => distance(In1, In2, Out)
+%% pt a reprez pc in plan, le scriem sub forma (X, Y)
+
+distance((X1, Y1), (X2, Y2), Result) :-
+    Result is sqrt((X1-X2)**2 + (Y1-Y2)**2).
+
+
+write_line(0, _) :- !.
+write_line(Rep, Atom):-
+    write(Atom), Rep1 is Rep-1,
+    write_line(Rep1, Atom).
+
+%% vrem sa afisam triunghiul
+%% wrfite_n/2 - write_n(Lin, Atom)
+
+write_n(0,_) :- !.
+write(N, Atom) :-
+    write_line(N, Atom),
+    nl,
+    N is N-1,
+    write_n(N1, Atom)
+ 
