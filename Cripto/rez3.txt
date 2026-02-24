@@ -1,0 +1,28 @@
+1. 
+1)
+Mesaj criptat:
+o9/khC3Pf3/9CyNCbdzHPy5oorccEawZSFt3mgCicRnihDSM8Obhlp3vviAVuBbiOtCSz6husBWqhfF0Q/8EZ+6iI9KygD3hAfFgnzyv9w==
+
+Cheia in Hex:
+ecb181a479a6121add5b42264db9b44b4b48d7d93c62c56a3c3e1aba64c7517a90ed44f8919484b6ed8acc4670db62c249b9f5bada4ed474c9e4d111308b614788cd4fbdc1e949c1629e12fa5fdbd9
+
+Cod python:
+
+import base64
+c_b64 = "o9/khC3Pf3/9CyNCbdzHPy5oorccEawZSFt3mgCicRnihDSM8Obhlp3vviAVuBbiOtCSz6husBWqhfF0Q/8EZ+6iI9KygD3hAfFgnzyv9w=="
+k_hex = "ecb181a479a6121add5b42264db9b44b4b48d7d93c62c56a3c3e1aba64c7517a90ed44f8919484b6ed8acc4670db62c249b9f5bada4ed474c9e4d111308b614788cd4fbdc1e949c1629e12fa5fdbd9"
+c = base64.b64decode(c_b64) # Convertim in binar
+k = bytes.fromhex(k_hex) # Convertim in binar
+m = bytes(a ^ b for a, b in zip(c, k)) # m = c XOR k 
+print(m.decode('ascii'))
+
+
+Mesaj decriptat:
+One Time Pad este un sistem de criptare perfect sigur daca este folosit corect.
+
+2) Da, deoarece anumite combinatii cheie-mesaj pot da acelasi rezultat. In cazul nostru, pentru a obtine mesajul dorit, va trebui sa schimbam cheia.
+3) Daca refolosim aceeasi cheie, un atacator poate afla xor-ul dintre cele 2 mesaje, incalcand securitatea perfecta.
+
+2.
+3.
+4.

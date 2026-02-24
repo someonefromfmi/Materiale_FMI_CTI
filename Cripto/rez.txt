@@ -1,0 +1,87 @@
+Ex 1:
+
+A 3
+B 1
+C 5
+D 2
+E 4
+
+Ex 3:
+Ziua in care m-am nascut: 27
++ 10: 37
+Binar: 100101
+
+Invers: 
+1 * 2^5 + 0 * 2^4 + 0 * 2^3 + 1 * 2^2 + 0 * 2^1 + 1 * 2^0 = 37
+Se scade 10 => 27
+
+------------------------
+
+Hexadecimal: 9BAC
+Binar: 1001.1011.1010.1100
+Transformarea inversa: luam in perechi de cate 4, deoarece 2^4 = 16:
+1001 -> 9
+1011 -> B
+1010 -> A
+1100 -> C
+
+Final: 9BAC
+
+Resurse:
+https://www.rapidtables.com/convert/number/decimal-to-binary.html
+
+Ex 4:
+C  O  S  M  I  N
+67 79 83 77 73 78
+
+-----------------------
+66 82 65 86 79
+B  R  A  V  O
+
+Resurse:
+https://www.duplichecker.com/ascii-to-text.php
+
+Ex 5:
+COSMIN
+Q09TTUlO
+
+---------------
+U3VudCBzdHVkZW50IGxhIEZNSS4=
+Sunt student la FMI.
+
+Resurse:
+https://www.base64decode.org/
+
+Ex 6:
+Malware
+Orice software malitios, creat cu scopul de a dauna unui sistem informatic, a fura date sau a compromite securitatea acestuia.
+
+Virus
+Malware care se ataseaza unui fisier legitim si se reproduce automat cand fisierul este executat. Poate deterioara date, incetini sistemul sau permite accesul neautorizat.
+
+Dropper
+Malware care contine si instaleaza alte componente malware pe sistemul tinta.
+
+Downloader
+Descarca componente malitioase de pe Internet si le instaleaza.
+
+Trojan
+Program care pare legitim sau util, dar care contine cod malitios ascuns. Ofera unui posibil atacator acces la sistem sau efectueaza actiuni neautorizate fara stirea utilizatorului.
+
+Spyware
+Program are spioneaza activitatea utilizatorului, colectand informatii precum parole, obiceiuri de navigare sau date personale, pe care le trimite la un tert.
+
+Riskware
+Aplicatii legitime care, in anumite conditii, pot fi folosite abuziv de atacatori pentru scopuri malitioase.
+
+Ransomware
+Malware care cripteaza fisierele victimei si cere o rascumparare pentru a le debloca.
+
+Adware
+Software care afiseaza reclame nedorite pe sistemul utilizatorului.
+
+Worm
+Malware care se reproduce singur si se raspandeste automat prin retele, fara a avea nevoie de un fisier gazda. Poate consuma resursele retelei sau instala alte programe malitioase.
+
+Obfuscare
+Tehnica de ascundere a codului sursa sau a intentiei reale a unui program, pentru a ingreuna analiza si detectarea de catre antivirusuri sau cercetatori in securitate.

@@ -1,0 +1,158 @@
+Ex 1:
+
+A 4
+B 2
+C 5
+D 1
+E 6
+F 3
+
+Ex 2:
+1. Confidentialitate
+2. Disponibilitate
+3. Integritate
+4. Confidentialitate
+5. Integritate
+
+Ex 3:
+1. 
+a) Cifrul lui Cezar (shift - 3)
+b)
+Descriere: Se face shiftarea caracterelor din alfabet cu 3
+Mesaj: BUNA DIMI A VENIT FRIGULETUL
+Criptat: EXQD GLPL D YHQLW IULJXOHWXO
+Decriptat: se shifteaza tot cu 3, dar spre dreapta
+
+Acesta nu este foarte sigur, spatial de chei, nu este suficient de mare.
+Putem sa folosim atacul prin forta bruta pentru a incerca toate cheile, deoarece 
+spatiul cheilor |K| = 26
+
+https://cryptii.com/pipes/caesar-cipher
+
+2.
+a) Rail Fence
+Descriere: 
+Se aseaza mesajul intr-o matrice pe coloane, si se va citi pe linii pentru a obtine mesajul criptat.
+Mesaj: HELLO GOOD WORLD
+Cheie: 3
+Criptare: HLOWLEOOODLGDR
+
+H L O W L
+E O O O D
+L G D R
+
+Decriptare:
+Se aseaza mesajul criptat in matrice, astfel incat sa se obtina 3 linii si se citeste 
+pe coloane.
+
+Acesta nu este foarte sigur, spatial de chei, nu este suficient de mare.
+Putem sa folosim atacul prin forta bruta pentru a incerca toate cheile, deoarece 
+spatiul cheilor: |K| = lugimea mesajului - 1
+
+Ex 4:
+
+Text criptat:
+ENHFJ EWK LML EOJ GDJ BMONKC PMCG YEPMAC FOVQGMROEQDHF FMAQNJ. CHWFJ GDJHO HWUJWGHMW HW 1978, GDJV DEUJ EG MWFJ LJJW FENNJK HWCJQEOELNJ, EWK
+DEUJ LJJW GDJ CALXJFG MY WAPJOMAC KHUMOFJC, GOEUJNC, EWK GMOPJWGC. HW GDJ JWCAHWR VJEOC, MGDJO FDEOEFGJOC DEUJ XMHWJK GDJHO FOVQGMROEQDHF YEPHNV. GDJOJC JUJ, GDJ QECCHUJ EWK CALPHCCHUJ JEUJCKOMQQJO, PENNMOV GDJ PENHFHMAC EGGEFTJO, EWK GOJWG, GOACGJK LV ENN, XACG GM WEPJ E YJB. BDHNJ ENHFJ, LML, EWK GDJHO JSGJWKJK YEPHNV BJOJ MOHRHWENNV ACJK GM JSQNEHW DMB QALNHF TJV FOVQGMROEQDV BMOTC, GDJV DEUJ CHWFJ LJFMPJ BHKJNV ACJK EFOMCC MGDJO CFHJWFJ EWK JWRHWJJOHWR KMPEHWC. GDJHO HWYNAJWFJ FMWGHWAJC GM ROMB MAGCHKJ MY EFEKJPHE EC BJNN: ENHFJ EWK LML EOJ WMB E QEOG MY RJJT NMOJ, EWK CALXJFG GM WEOOEGHUJC EWK UHCAEN KJQHFGHMWC GDEG FMPLHWJ QJKERMRV BHGD HW-XMTJC, MYGJW OJYNJFGHWR MY GDJ CJSHCG EWK DJGJOMWMOPEGHUJ JWUHOMWPJWGC HW BDHFD GDJV BJOJ LMOW EWK FMWGHWAJ GM LJ ACJK. PMOJ GDEW XACG GDJ BMONKC PMCG YEPMAC FOVQGMROEQDHF FMAQNJ, ENHFJ EWK LML DEUJ LJFMPJ EW EOFDJGVQJ MY KHRHGEN JSFDEWRJ, EWK E NJWC GDOMARD BDHFD GM UHJB LOMEKJO KHRHGEN FANGAOJ. I.KAQMWG EWK E.FEGGEQEW FOVQGMFMAQNJ
+
+
+Text decriptat:
+ALICE AND BOB ARE THE WORLDS MOST FAMOUS CRYPTOGRAPHIC COUPLE SINCE THEIR INVENTION IN 1978 THEY HAVE AT ONCE BEEN CALLED INSEPARABLE AND HAVE BEEN THE SUBJECT OF NUMEROUS DIVORCES TRAVELS AND TORMENTS IN THE ENSUING YEARS OTHER CHARACTERS HAVE JOINED THEIR CRYPTOGRAPHIC FAMILY THERES EVE THE PASSIVE AND SUBMISSIVE EAVESDROPPER MALLORY THE MALICIOUS ATTACKER AND TRENT TRUSTED BY ALL JUST TO NAME A FEW WHILE ALICE BOB AND THEIR EXTENDED FAMILY WERE ORIGINALLY USED TO EXPLAIN HOW PUBLIC KEY CRYPTOGRAPHY WORKS THEY HAVE SINCE BECOME WIDELY USED ACROSS OTHER SCIENCE AND ENGINEERING DOMAINS THEIR INFLUENCE CONTINUES TO GROW OUTSIDE OF ACADEMIA AS WELL ALICE AND BOB ARE NOW A PART OF GEEK LORE AND SUBJECT TO NARRATIVES AND VISUAL DEPICTIONS THAT COMBINE PEDAGOGY WITH IN-JOKES OFTEN REFLECTING OF THE SEXIST AND HETERONORMATIVE ENVIRONMENTS IN WHICH THEY WERE BORN AND CONTINUE TO BE USED MORE THAN JUST THE WORLDS MOST FAMOUS CRYPTOGRAPHIC COUPLE ALICE AND BOB HAVE BECOME AN ARCHETYPE OF DIGITAL EXCHANGE AND A LENS THROUGH WHICH TO VIEW BROADER DIGITAL CULTURE QDUPONT AND ACATTAPAN CRYPTOCOUPLE
+
+https://www.dcode.fr/frequency-analysis
+https://www.dcode.fr/monoalphabetic-substitution
+
+Ex 5:
+8.
+De unde am inceput: KKQ
+Numele meu: COSMIN
+Criptat: PQDDO V
+
+Encryption Steps:
+Keyboard Input: C
+Rotors Position: KKR
+Plugboard Encryption: C
+Wheel 3 Encryption: K
+Wheel 2 Encryption: G
+Wheel 1 Encryption: E
+Reflector Encryption: Q
+Wheel 1 Encryption: N
+Wheel 2 Encryption: W
+Wheel 3 Encryption: P
+Plugboard Encryption: P
+Output (Lampboard): P
+-----------------------------
+Keyboard Input: O
+Rotors Position: KKS
+Plugboard Encryption: O
+Wheel 3 Encryption: V
+Wheel 2 Encryption: Z
+Wheel 1 Encryption: M
+Reflector Encryption: O
+Wheel 1 Encryption: E
+Wheel 2 Encryption: B
+Wheel 3 Encryption: Q
+Plugboard Encryption: Q
+Output (Lampboard): Q
+-----------------------------
+Keyboard Input: S
+Rotors Position: KKT
+Plugboard Encryption: S
+Wheel 3 Encryption: R
+Wheel 2 Encryption: X
+Wheel 1 Encryption: A
+Reflector Encryption: Y
+Wheel 1 Encryption: J
+Wheel 2 Encryption: X
+Wheel 3 Encryption: D
+Plugboard Encryption: D
+Output (Lampboard): D
+-----------------------------
+Keyboard Input: M
+Rotors Position: KKU
+Plugboard Encryption: M
+Wheel 3 Encryption: T
+Wheel 2 Encryption: R
+Wheel 1 Encryption: W
+Reflector Encryption: V
+Wheel 1 Encryption: U
+Wheel 2 Encryption: A
+Wheel 3 Encryption: D
+Plugboard Encryption: D
+Output (Lampboard): D
+-----------------------------
+Keyboard Input: I
+Rotors Position: KKV
+Plugboard Encryption: I
+Wheel 3 Encryption: E
+Wheel 2 Encryption: L
+Wheel 1 Encryption: F
+Reflector Encryption: S
+Wheel 1 Encryption: S
+Wheel 2 Encryption: J
+Wheel 3 Encryption: O
+Plugboard Encryption: O
+Output (Lampboard): O
+-----------------------------
+Keyboard Input: N
+Rotors Position: KKW
+Plugboard Encryption: N
+Wheel 3 Encryption: I
+Wheel 2 Encryption: C
+Wheel 1 Encryption: D
+Reflector Encryption: H
+Wheel 1 Encryption: M
+Wheel 2 Encryption: H
+Wheel 3 Encryption: V
+Plugboard Encryption: V
+Output (Lampboard): V
+-----------------------------
+
+9. Decriptare: Am refacut pozitia initiala, exact cum am inceput si am scris mesajul criptat pentru a-mi obtine numele
+
+10. Text criptat:
+Text criptat: COSMIN
+Explicatie: Niciun caracter nu se cripteaza pe el insusi: la fiecare pozitie, litera cifrata nu poate fi aceeasi cu litera originala din aceeasi pozitie.
+
+
+
