@@ -13,7 +13,7 @@
 - [Ingineria Programarii]()
 
 ### Optionale
-- [Calcul Numeric In Informatica]()
+- [Calcul Numeric In Informatica](https://github.com/someonefromfmi/Materiale_FMI_CTI/tree/main/CN)
 - [Grafica pe Calculator]()
 - [Implementarea Concurentei in Limbaje de Programare]()
 ## Sem 2
