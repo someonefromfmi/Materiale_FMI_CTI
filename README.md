@@ -5,6 +5,7 @@
 - [Invatare Automata](https://github.com/someonefromfmi/Materiale_FMI_CTI/tree/main/ML)
 - [Programare Orientata pe Obiecte 2](https://github.com/someonefromfmi/Materiale_FMI_CTI/tree/main/OOP2)
 - [Programare Logica si Functionala](https://github.com/someonefromfmi/Materiale_FMI_CTI/tree/main/PLF)
+- [Proiectarea Aplicatiilor Web](https://github.com/someonefromfmi/Materiale_FMI_CTI/tree/main/Aplicatii_Web)
 
 # Anul 4
 ## Sem 1
