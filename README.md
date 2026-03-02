@@ -18,3 +18,11 @@
 - [Grafica pe Calculator]()
 - [Implementarea Concurentei in Limbaje de Programare]()
 ## Sem 2
+### Antreprenorial
+- [Managementul Operatiunilor]()
+### Fizica
+- [Modelarea si Simularea Sistemelor Complexe]()
+### Restul Optionale
+- [Metode Formale in Ingineria Software]()
+- [Introducere in cercetare si bioinformatica]()
+- [Testarea Sistemelor Software]()
