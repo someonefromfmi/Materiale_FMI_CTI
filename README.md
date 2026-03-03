@@ -20,7 +20,7 @@
 ## Sem 2
 ### Antreprenorial
 - [Managementul Operatiunilor]()
-### Fizica
+### Fizica (urasc MATLAB!!!!1!!!!11!!!!)
 - [Modelarea si Simularea Sistemelor Complexe]()
 ### Restul Optionale
 - [Metode Formale in Ingineria Software]()
