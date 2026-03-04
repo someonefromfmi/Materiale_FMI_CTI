@@ -23,7 +23,7 @@
 ### Optionale
 - [Calcul Numeric In Informatica](https://github.com/someonefromfmi/Materiale_FMI_CTI/tree/main/CN)
 - [Grafica pe Calculator]()
-- [Implementarea Concurentei in Limbaje de Programare]()
+- [Implementarea Concurentei in Limbaje de Programare](https://github.com/someonefromfmi/Materiale_FMI_CTI/tree/main/Concurenta)
 ## Sem 2
 ### Antreprenorial
 - [Managementul Operatiunilor]()
