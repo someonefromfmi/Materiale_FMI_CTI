@@ -1,5 +1,9 @@
-# Alte GitHub-uri cu materiale
+# Alte GitHub-uri cu materiale (bune pentru optionale mai ales)
 - [lmihaig](https://github.com/lmihaig/facultate/tree/main/An4)
+- [TeodoraLazaroiu](https://github.com/TeodoraLazaroiu/FMI-Materials)
+- [skpha13](https://github.com/skpha13/University-Work)
+- [DLarisa](https://github.com/DLarisa/FMI-Materials-BachelorDegree-UniBuc)
+- [FMI-Materials](https://github.com/FMI-Materials/FMI-Materials)
 
 # Anul 3
 ## Sem 2
