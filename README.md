@@ -4,6 +4,7 @@
 - [skpha13](https://github.com/skpha13/University-Work)
 - [DLarisa](https://github.com/DLarisa/FMI-Materials-BachelorDegree-UniBuc)
 - [FMI-Materials](https://github.com/FMI-Materials/FMI-Materials)
+- [sebi2805](https://github.com/sebi2805/fmi-cti-2021)
 
 # Anul 3
 ## Sem 2
