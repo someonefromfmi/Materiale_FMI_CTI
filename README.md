@@ -1,5 +1,5 @@
 # Alte GitHub-uri cu materiale
-- [](https://github.com/lmihaig/facultate/tree/main/An4)
+- [lmihaig](https://github.com/lmihaig/facultate/tree/main/An4)
 
 # Anul 3
 ## Sem 2
