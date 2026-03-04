@@ -1,3 +1,6 @@
+# Alte GitHub-uri cu materiale
+- [](https://github.com/lmihaig/facultate/tree/main/An4)
+
 # Anul 3
 ## Sem 2
 - [Arhitectura Sistemelor Paralele](https://github.com/someonefromfmi/Materiale_FMI_CTI/tree/main/ASP)
