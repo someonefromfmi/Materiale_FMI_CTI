@@ -18,7 +18,7 @@
 ## Sem 1
 - [Criptografie si Securitate](https://github.com/someonefromfmi/Materiale_FMI_CTI/tree/main/Cripto)
 - [Managementul si Dezvoltarea Carierei](https://github.com/someonefromfmi/Materiale_FMI_CTI/tree/main/DezvCarierei)
-- [Ingineria Programarii]()
+- [Ingineria Programarii](https://github.com/someonefromfmi/Materiale_FMI_CTI/tree/main/Proiect%20IP)
 
 ### Optionale
 - [Calcul Numeric In Informatica](https://github.com/someonefromfmi/Materiale_FMI_CTI/tree/main/CN)
