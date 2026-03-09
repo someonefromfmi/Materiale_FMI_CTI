@@ -32,5 +32,5 @@
 - [Modelarea si Simularea Sistemelor Complexe]()
 ### Restul Optionale
 - [Metode Formale in Ingineria Software]()
-- [Introducere in cercetare si bioinformatica]()
+- [Introducere in Cercetare si Bioinformatica]()
 - [Testarea Sistemelor Software]()
