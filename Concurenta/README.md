@@ -7,4 +7,4 @@
 - [Async cu TMvar in Haskell](https://pastebin.com/ewtfPRC5)
 - [Prezentare Erlang](https://onecompiler.com/erlang/446nk8vgf)
 - [Client-Server Erlang](https://onecompiler.com/erlang/447bppdzq)
-- [Problema cu Automate](https://onecompiler.com/erlang/447ztj5nz)
+- [Problema cu Automate Erlang](https://onecompiler.com/erlang/447ztj5nz)
